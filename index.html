@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Bank</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f7fa;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007A33; /* Default color */
+            color: white;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #005A25;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Bank</h2>
+        <button onclick="location.href='chase.html'">Chase Bank</button>
+        <button onclick="location.href='boa.html'">Bank of America</button>
+        <button onclick="location.href='well fargo.html'">Wells Fargo</button>
+        <button onclick="location.href='citibank.html'">Citibank</button>
+        <button onclick="location.href='tdbank.html'">TD Bank</button>
+    </div>
+</body>
+</html>
